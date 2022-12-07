@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+   
+   <head>
+    <title>Contact Us</title>   
+    <link rel="icon" href="Images/Icon.png">
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link href="CSS/CSS.css" rel="stylesheet">
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	   <script type="text/javascript"></script>
+   
+        <script>
+				$("document").ready(function(){
+				$("#name, #myInput, #mobile, #email1, #email2").focusin(function (){
+					$(this).css("background-color", "lightgray");
+				});
+			$("#name, #myInput, #mobile, #email1, #email2").mouseover(function (){
+					$(this).css("background-color", "lightblue");
+				});
+			$("#name, #myInput, #mobile, #email1, #email2").mouseout(function (){
+					$(this).css("background-color", "white");
+				})
+			});
+			
+        function validate() {
+			
+            var name_val = document.getElementById("name").value;
+			const name = document.getElementById('nameError');
+            if (name_val == null || name_val == "") {
+                document.getElementById("nameError").innerHTML = "not valid";
+				name.style.color = 'red';
+                return false;
+            } else document.getElementById("nameError").innerHTML = "*";
+			name.style.color = 'black';
+			
+            var password_val = document.getElementById("myInput").value;
+			const pass = document.getElementById('PasswordError');
+            if (password_val == null || password_val == "") {
+                document.getElementById("PasswordError").innerHTML = "not valid";
+				pass.style.color = 'red';
+                return false;
+            } else document.getElementById("PasswordError").innerHTML = "*";
+			pass.style.color = 'black';
+			
+			
+			var phoneno_val = document.getElementById("mobile").value;
+			const mobile = document.getElementById('mobileError');
+		  if(phoneno_val == null || phoneno_val =="")
+				{
+			  document.getElementById("mobileError").innerHTML = "not a valid phone Number";
+				mobile.style.color = 'red';
+                return false;
+				}else document.getElementById("mobileError").innerHTML = "*";
+				mobile.style.color = 'black';
+			
+			
+            var email1_val = document.getElementById("email1").value;
+			const email1 = document.getElementById('EmailError');
+            if (email1_val == null || email1_val == "" || email1_val == '/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/') {
+				
+                document.getElementById("EmailError").innerHTML = "not valid";
+				email1.style.color = 'red';
+                return false;
+            } else document.getElementById("EmailError").innerHTML = "*";
+email1.style.color = 'black';
+			
+			
+			
+            var email2_val = document.getElementById("email2").value;
+            if (email2_val == null || email2_val == "" || email2_val == '/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/') {
+               document.getElementById("ReEmailError").innerHTML = "not valid";
+                return false;
+            } else document.getElementById("ReEmailError").innerHTML = "*";
+            
+
+
+        var email = document.getElementById("email1").value;
+        var retype = document.getElementById("email2").value;
+
+        if (email != retype) {
+            document.getElementById("ReEmailError").innerHTML = "Email not the same";
+                return false;
+            } else document.getElementById("ReEmailError").innerHTML = "*";		
+			
+           function myFunction() {
+              var x = document.getElementById("myLinks");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+            }
+        }
+    $(function () {
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    })         
+       </script>
+       
+    </head> 
+    
+ <body>
+     
+
+ <header>
+ <div class="container">
+      <div class="brand">
+        <h2><a href="index.html"><img src="Images/Leaf_favcon.png" alt="green leaf icon"></a></h2>
+      </div>
+
+      <div class="mobile-nav">
+        <a href="#" class="open-menu">MENU</a>
+      </div>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="BMI.html">BMI</a>
+          </li>
+          <li class="menu-item has-sub-menu">
+            <a href="#">Members</a>
+
+            <ul class="sub-menu">
+              <li class="menu-item">
+                <a href="Log-in.html">Login</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="Sign-up.html">Sign-up</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#" class="close-menu">Close Menu</a>
+      </nav>
+
+<div class="search-box">
+  <input type="text" class="search-input" placeholder="Start Looking For Something!">
+  <a class="search-btn" href="#">
+    <!-- Seach Icon -->
+    <i class="fa fa-search"></i>
+  </a>
+</div>
+    </div>
+</header>
+     <script>
+     // Toggle Mobile Menu
+        const open_menu = document.querySelector('.open-menu');
+        const close_menu = document.querySelector('.close-menu');
+        const navbar = document.querySelector('.navbar');
+
+        open_menu.addEventListener('click', toggleMenu);
+        close_menu.addEventListener('click', toggleMenu);
+
+
+        function toggleMenu () {
+          navbar.classList.toggle('is-active');
+        }
+     </script>
+     
+     <br>
+       <div class="Contact">
+       
+
+
+
+        <div class="headerText">
+        
+            <h1>Sign up</h1>
+        
+        <div class="log-in" >
+
+        <form action="http://litstudentprojects.net/rwd-a2-response.php" method="post" onsubmit="return validate();" name="Form">
+            
+       <p>
+            <label class="LabelText">Name:</label>
+            <input type="text" name="name"  id="name" placeholder="Enter name" class="inputText"><a id="nameError">*</a>
+            </p>
+                    
+        <p>
+            <label class="LabelText">Password:</label> <input type="password" id="myInput" placeholder="Password" class="inputText">
+            <i class="fa fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;" onclick="myFunction()"></i><a style="padding-left: 10px;" id="PasswordError">*</a>
+           <script>                    
+            function myFunction() {
+              var x = document.getElementById("myInput");
+
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+
+              }
+            }   
+                    </script>
+        </p>
+        
+        <p>
+            <label for="mobile" class="LabelText">Telephone:</label>
+            <input type=tel placeholder="123-456-7890" id="mobile" name="mobile" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="inputText"> 
+			 <a id="mobileError">*</a>
+        </p>
+                    
+        <p>
+            <label for="email1" class="LabelText">Email:</label>
+            <input type=email name="email1" id="email1" placeholder="Example@gmail.com" class="inputText">
+            <a id="EmailError">*</a>
+        </p>
+            
+        <p>            
+            <label for="email2" class="LabelText">Retype your Email:</label>
+            <input type=email name="email2" id="email2" placeholder="Example@gmail.com" class="inputText">
+           <a id="ReEmailError">*</a>
+        </p>
+        
+        
+         
+        
+            
+        <p>
+            <input type="submit" name="submit" id="submit" value="Submit" class="FormSubmit">
+            <button><a href="Log-in.html" class="FormSubmit"> Log-in</a></button >
+        </p>   
+    </form>
+</div>      
+    
+
+
+          <footer class="footer">
+
+        
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-snapchat"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        
+
+            <p class="copyright">Laimis Mikulskis @ 2022</p>
+            <p class="copyright">K00273589</p>
+            <p class="DateTime" id="date"></p>
+			<p class="DateTime" id="Time"></p>
+            <script>
+            var date = new Date();
+            var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear() ;
+            document.getElementById("date").innerHTML = current_date;
+				
+			var Time = new Date();
+			var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+			document.getElementById("Time").innerHTML = current_time;
+            </script>
+</footer>
+
+  </div> 
+ </body>   
+    
+
+</html>

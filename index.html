@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+   
+   <head>
+    <title>Home</title>   
+    <link rel="icon" href="Images/Leaf_favcon.png">
+    <meta charset="utf-8"> 
+    
+    <link href="CSS/CSS.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+    </head>    
+    
+ <body>
+    <header>
+ <div class="container">
+      <div class="brand">
+        <h2><a href="index.html"><img src="Images/Leaf_favcon.png" alt="green Leaf"></a></h2>
+      </div>
+
+      <div class="mobile-nav">
+        <a href="#" class="open-menu">MENU</a>
+      </div>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="BMI.html">BMI</a>
+          </li>
+          <li class="menu-item has-sub-menu">
+            <a href="#">Members</a>
+
+            <ul class="sub-menu">
+              <li class="menu-item">
+                <a href="Log-in.html">Login</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="Sign-up.html">Sign-up</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#" class="close-menu">Close Menu</a>
+      </nav>
+
+<div class="search-box">
+  <input type="text" class="search-input" placeholder="Start Looking For Something!">
+  <a class="search-btn" href="#">
+    <!-- Seach Icon -->
+    <i class="fa fa-search"></i>
+  </a>
+</div>
+    </div>
+</header>
+
+     
+     <br>
+       <div class="grid-container">
+       
+<div class="Scontainer">
+        <div class="slider-container">
+			<div class="slider">
+                <a href="#"><img src="Images/Healthy1.png" alt="nike shoes for sale on discount"></a>
+            </div>
+             <div class="slider">
+                <a href="#"><img src="images/Healthy2.png" alt="shop adidas"></a>
+            </div>
+            <div class="prev-button" onclick="plusSlide(-1)">&#10094;</div>
+            <div class="next-button" onclick="plusSlide(1)">&#10095;</div>
+            
+            <div class="lines">
+                <div class="line" onclick="currentSlide(1)"></div>
+                <div class="line" onclick="currentSlide(2)"></div>
+            </div>
+        </div>
+    <script>
+var count = 0;
+var i = 0;
+var slider = document.getElementsByClassName("slider");
+var line = document.getElementsByClassName("line");
+
+auto();
+
+function show(n) {
+    for(i = 0; i < slider.length; i++) {    // slider.length = 2
+        slider[i].style.display = "none";
+    }
+    for(i = 0; i < line.length; i++) {  // line.length = 2
+        line[i].className = line[i].className.replace("active");
+    }
+    slider[n-1].style.display=("block");
+    line[n-1].className += " active";
+}
+
+function auto() {
+    count++;
+    if(count > slider.length) {
+        count = 1;
+    }
+    show(count);
+    setTimeout(auto, 6000);
+}
+
+function plusSlide(n) {
+    count += n;
+    if(count > slider.length) {
+        count = 1;
+    }
+    if (count < 1) {
+        count = slider.length;
+    }
+    show(count);
+}
+
+function currentSlide(n) {
+    count += n;
+    if(count > slider.length) {
+        count = 1;
+    }
+    if (count < 1) {
+        count = slider.length;
+    }
+    show(count);
+}
+           </script> 
+    </div>
+
+           <div class="running"><img src="Images/Running.png" id="Practie" alt="start of a chess game with a wooden board and peices with all peices in alighnment ">
+           </div>
+           
+             <article class="news">
+           <h2>NEW's</h2>
+           <p>Go for a Runn!!! Sientist clam that doing a Daily runn helps relese Stress and Fateige </p>
+           <p>Doing a Daily run of about 10-20m is recommened for all people</p></article>
+            
+           
+            <article class="artical1">
+                <img src="Images/Healthy_food.png"  alt="Wooden chess board and peices scatered around the board in the midele of a tournament">
+
+           <h2>Healthy Diet</h2>
+          <p>Having a Good Balence Diet is very inportent as it helps Maintain the Body so that its in the best condition</p>
+           <p>Many People Lack the Needed vitemins that come from a Balance diet, so keeping track of you'r diet would be very good so that you are in top condition</p></article>
+           
+           
+
+           <div class="artical2"><img src="Images/BMI.png" class="Rules"  alt="showing how the hourse chess Peice moves (which is any L shape)">
+           
+           
+           
+           <h2>BMI</h2>
+           <p style="text-align: center;">Check Out Our NEW BMI Page!!!</p>
+           <p>We have just added a new page to calculat your <a href="BMI.html">BMI</a></p>
+            <p>Body Mass Index (BMI) is a person's weight in kilograms (or pounds) divided by the square of height in meters (or feet). A high BMI can indicate high body fatness. BMI screens for weight categories that may lead to health problems, but it does not diagnose the body fatness or health of an individual.</p></div>
+           
+           <div class="artical3"><img src="Images/sleep.png" class="Rules"  alt="showing how the hourse chess Peice moves (which is any L shape)">
+           
+           
+           
+           <h2>Sleep</h2>
+           <p>Sientist clame that 8 hours of sleep is recommended but not necessary to saty alive </p>
+            <p>It is said that the 8 hourse of sleep is for an average healthy Person, however having less would not effect people very badly as some have a higher level of tolerence, to fatege</p></div>
+           
+             
+            
+            
+        <footer class="footer">
+
+        
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-snapchat"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        
+
+            <p class="copyright">Laimis Mikulskis @ 2022</p>
+            <p class="copyright">K00273589</p>
+            <p class="DateTime" id="date"></p>
+			<p class="DateTime" id="Time"></p>
+            <script>
+            var date = new Date();
+            var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear() ;
+            document.getElementById("date").innerHTML = current_date;
+				
+			var Time = new Date();
+			var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+			document.getElementById("Time").innerHTML = current_time;
+            </script>
+</footer>
+
+  </div> 
+ </body>   
+    
+
+</html>

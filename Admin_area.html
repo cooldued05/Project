@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+   
+   <head>
+    <title>Home</title>   
+    <link rel="icon" href="Images/Leaf_favcon.png">
+    <meta charset="utf-8"> 
+    
+    <link href="CSS/CSS.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+    <script>
+    function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+ 
+} 
+        
+    </script>
+       <script>
+         $("document").ready(function(){
+             $(".submit").on('click' function(){
+                 
+             })
+         })  
+       
+       </script>
+       
+    </head>    
+    
+ <body>
+    
+<header>
+ <div class="container">
+      <div class="brand">
+        <h2><a href="index.html"><img src="Images/Leaf_favcon.png" alt="green Leafe icon"></a></h2>
+      </div>
+
+      <div class="mobile-nav">
+        <a href="#" class="open-menu">MENU</a>
+      </div>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="BMI.html">BMI</a>
+          </li>
+          <li class="menu-item has-sub-menu">
+            <a href="#">Members</a>
+
+            <ul class="sub-menu">
+              <li class="menu-item">
+                <a href="Log-in.html">Login</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="Sign-up.html">Sign-up</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#" class="close-menu">Close Menu</a>
+      </nav>
+
+<div class="search-box">
+  <input type="text" class="search-input" placeholder="Start Looking For Something!">
+  <a class="search-btn" href="#">
+    <!-- Seach Icon -->
+    <i class="fa fa-search"></i>
+  </a>
+</div>
+	</div>
+</header>
+     <br>
+       <div class="grid-container">
+       
+
+           
+           
+
+           
+           
+            <article class="artical1">
+           <h2>Add products</h2>
+            <div class="drag-container">
+                   <ul class="drag-list">
+            <!-- products Column -->
+            <li class="drag-column products-column">
+
+                <!-- products Content -->
+                <div id="products-content" class="custom-scroll">
+                    <ul class="drag-item-list" id="products-list" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(0)"></ul>
+                </div>
+                <!-- Add Button Group -->
+                <div class="add-btn-group">
+                    <div class="add-btn" onclick="showInputBox(0)">
+                        <span class="plus-sign">+</span>
+                        <span>Add Item</span>
+                    </div>
+                    <div class="add-btn solid" onclick="hideInputBox(0)">
+                        <span>Save Item</span>
+                    </div>
+                </div>
+                <div class="add-container">
+                    <div class="add-item" contenteditable="true"></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+ 
+                
+           </article>
+           <script>
+           const addBtns = document.querySelectorAll('.add-btn:not(.solid)');
+const saveItemBtns = document.querySelectorAll('.solid');
+const addItemContainers = document.querySelectorAll('.add-container');
+// Item Lists
+const productsListEl = document.getElementById('products-list');
+// Items
+let updatedOnLoad = false;
+
+// Get Arrays from localStorage if available, set default values if not
+function getSavedColumns() {
+  if (localStorage.getItem('productsItems')) {
+    productsListArray = JSON.parse(localStorage.productsItems);
+   
+  } else {
+    productsListArray = ['Beef', 'Chicken', 'Salmon', 'Pork','Milk'];
+  }
+}
+               
+// Create DOM Elements for each list item
+function createItemEl(columnEl, column, item, index) {
+  // List Item
+  const listEl = document.createElement('li');
+  listEl.textContent = item;
+  listEl.classList.add('drag-item');
+  // Append
+  columnEl.appendChild(listEl);
+}
+
+// Update Columns in DOM - Reset HTML, Filter Array, Update localStorage
+function updateDOM() {
+  // Check localStorage once
+  if (!updatedOnLoad) {
+    getSavedColumns();
+  }
+  // products Column
+  productsListEl.textContent = '';
+  productsListArray.forEach((productsItem, index) => {
+    createItemEl(productsListEl, 0, productsItem, index);
+  });
+  productsListArray = filterArray(productsListArray);
+}
+
+// Show Add Item Input Box
+function showInputBox(column) {
+  addBtns[column].style.visibility = 'hidden';
+  saveItemBtns[column].style.display = 'flex';
+  addItemContainers[column].style.display = 'flex';
+}
+
+// Hide Item Input Box
+function hideInputBox(column) {
+  addBtns[column].style.visibility = 'visible';
+  saveItemBtns[column].style.display = 'none';
+  addItemContainers[column].style.display = 'none';
+  addToColumn(column);
+}
+
+
+// On Load
+updateDOM();
+
+           </script>
+
+
+           <div class="artical2">
+           <h2> Modify Products</h2>
+			   <form>
+			   <label for="Modifyname" class="LabelText">Product name</label>
+			   <input placeholder="Enter Product name" id="Modifyname">
+			   <p></p>
+			   <label for="desc" class="LabelText">Description</label>
+			   <textarea id="desc" placeholder="Enter description"></textarea>
+			   <p></p>
+			   <label for="brand" class="LabelText">Brand</label>
+			   <input placeholder="Enter brand" id="brand">
+			   <p></p>
+			   <button type="submit">Save</button> <button type="reset">Reset</button>
+			   </form>
+           </div>
+           
+           <div class="artical3">
+           <h2> Delete Products</h2>
+			    <form>
+			   <label for="DeleteName" class="LabelText">Product name</label>
+			   <input placeholder="Enter Product name" id="DeleteName">
+			   <p></p>
+			   <button type="submit">Delete</button> <button type="reset">Clear</button>
+			   </form>
+           </div>
+           
+             
+            
+            
+          <footer class="footer">
+
+        
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-snapchat"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        
+
+            <p class="copyright">Laimis Mikulskis @ 2022</p>
+            <p class="copyright">K00273589</p>
+            <p class="DateTime" id="date"></p>
+			<p class="DateTime" id="Time"></p>
+            <script>
+            var date = new Date();
+            var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear() ;
+            document.getElementById("date").innerHTML = current_date;
+				
+			var Time = new Date();
+			var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+			document.getElementById("Time").innerHTML = current_time;
+            </script>
+</footer>
+
+  </div> 
+ </body>   
+    
+
+</html>

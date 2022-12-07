@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/CSS.css" rel="stylesheet">
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+
+    <script>function calculate(){
+  //BMI storage
+    var bmi;
+    var result = document.getElementById("result");
+  //The value of the height slider
+    var height = parseInt(document.getElementById("height").value);
+  //The value of the weight slider
+    var weight = parseInt(document.getElementById("weight").value);
+
+  //Change Weight text from Weight Slider
+    document.getElementById("weight-val").textContent = weight + " kg";
+  //Change heigh text from height Slider
+    document.getElementById("height-val").textContent = height + " cm";
+
+//formula for calculating BMI 
+    bmi = (weight / Math.pow( (height/100), 2 )).toFixed(1);
+  //textContent to display result 
+    result.textContent = bmi;
+
+
+  //if BMI is less than 18.5
+    if(bmi < 18.5){
+        Class = "Underweight";
+        result.style.color = "#ffc44d";
+    }
+
+  //If BMI is >=18.5 and <=24.9
+    else if( bmi >= 18.5 && bmi <= 24.9 ){
+        Class = "Normal Weight";
+        result.style.color = "#0be881";
+    }
+
+  //If BMI is >= 25 and <= 29.9 
+    else if( bmi >= 25 && bmi <= 29.9 ){
+        Class = "Overweight";
+        result.style.color = "#ff884d";
+    }
+
+  //If BMI is <= 30
+    else{
+        Class = "Obese";
+        result.style.color = "#ff5e57";
+    }
+  //All of the above text is stored in "Class".
+
+//display the information 
+    document.getElementById("Class").textContent = Class;
+}</script>
+</head>
+<body>
+ <header>
+ <div class="container">
+      <div class="brand">
+        <h2><a href="index.html"><img src="Images/Leaf_favcon.png" alt="green leaf icon"></a></h2>
+      </div>
+
+      <div class="mobile-nav">
+        <a href="#" class="open-menu">MENU</a>
+      </div>
+
+      <nav class="navbar">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="BMI.html">BMI</a>
+          </li>
+          <li class="menu-item has-sub-menu">
+            <a href="#">Members</a>
+
+            <ul class="sub-menu">
+              <li class="menu-item">
+                <a href="Log-in.html">Login</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="Sign-up.html">Sign-up</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#" class="close-menu">Close Menu</a>
+      </nav>
+
+<div class="search-box">
+  <input type="text" class="search-input" placeholder="Start Looking For Something!">
+  <a class="search-btn" href="#">
+    <!-- Seach Icon -->
+    <i class="fa fa-search"></i>
+  </a>
+</div>
+</div>
+</header>
+     <script>
+     // Toggle Mobile Menu
+        const open_menu = document.querySelector('.open-menu');
+        const close_menu = document.querySelector('.close-menu');
+        const navbar = document.querySelector('.navbar');
+
+        open_menu.addEventListener('click', toggleMenu);
+        close_menu.addEventListener('click', toggleMenu);
+
+
+        function toggleMenu () {
+          navbar.classList.toggle('is-active');
+        }
+     </script>
+    
+<div class="grid-container">
+    <a class="BMIImg"><img src="Images/BMI_Page.png" alt="Bmi scores displayed as a graph"></a>
+    <p></p>
+   <div class="BmiContainer"> 
+  <h1>BMI Calculator</h1> 
+<div class="display"> <!-- result Container -->
+   <p id="result">BMI Score</p> <!-- default result -->
+   <p id="Class">Weight Class</p> <!-- default result -->
+</div> 
+       <div class="row"> <!-- Weight Container -->
+   <input type="range" min="20" max="200" value="20" id="weight" oninput="calculate()"> <!-- Weight Slider -->
+   <span id="weight-val">20 kg</span> <!-- Number -->
+</div>
+	   <p id="weight-desc"><a>Use the slider above for the weight ↑</a></p>
+       <div class="row"> <!-- Height Container -->
+  <input type="range" min="100" max="250" value="100" id="height" oninput="calculate()"><!-- Height Slider -->
+  <span id="height-val">100 cm</span> <!-- Number -->
+</div>
+	   <p id="height-desc"><a>Use the slider above for the height ↑</a></p>
+</div>
+    
+    
+    
+    
+    
+    <div id="weightconverter">
+        <h2>weight converter</h2>
+        
+    <p>
+  Pounds
+  <input id="inputPounds" type="number" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+</p>
+<p>Kilograms: <span id="PoundsKilograms"></span></p>
+
+<script>
+function weightConverter(valNum) {
+  document.getElementById("PoundsKilograms").innerHTML=valNum/2.2046;
+}
+</script>
+        <p>
+  Stones
+  <input id="inputStones" type="number" oninput="StonesConverter(this.value)" onchange="StonesConverter(this.value)">
+</p>
+<p>Kilograms: <span id="outputKilograms"></span></p>
+
+<script>
+function StonesConverter(valNum) {
+  document.getElementById("outputKilograms").innerHTML=valNum/0.15747;
+}
+</script>
+</div>
+    <div id="heightconverter">
+        <h2>height converter</h2>
+    <p>
+  Feet <label></label>
+  <input id="inputFeet" type="number" oninput="feetConverter(this.value)" onchange="feetConverter(this.value)">
+</p>
+<p>cm: <span id="feetcm"></span></p>
+<script>
+function feetConverter(valNum) {
+  document.getElementById("feetcm").innerHTML=valNum/0.032808;
+}
+</script>
+        
+      <p>
+  Meters<label></label>
+  <input id="inputMeters" type="number" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
+</p>
+<p>cm: <span id="Meterscm"></span></p>
+
+<script>
+function LengthConverter(valNum) {
+  document.getElementById("Meterscm").innerHTML=valNum/0.01;
+}
+</script>  
+        
+        <p>
+  Inches<label></label>
+  <input id="inputInches" type="number" oninput="InchesConverter(this.value)" onchange="InchesConverter(this.value)">
+</p>
+<p>cm: <span id="Inchescm"></span></p>
+
+<script>
+function InchesConverter(valNum) {
+  document.getElementById("Inchescm").innerHTML=valNum/0.39370;
+}
+</script>
+</div>
+     <footer class="footer">
+
+        
+            <div class="social">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-snapchat"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        
+
+            <p class="copyright">Laimis Mikulskis @ 2022</p>
+            <p class="copyright">K00273589</p>
+            <p class="DateTime" id="date"></p>
+			<p class="DateTime" id="Time"></p>
+            <script>
+            var date = new Date();
+            var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear() ;
+            document.getElementById("date").innerHTML = current_date;
+				
+			var Time = new Date();
+			var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+			document.getElementById("Time").innerHTML = current_time;
+            </script>
+</footer>
+</div>
+</body>
+</html>
